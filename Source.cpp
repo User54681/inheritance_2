@@ -31,3 +31,23 @@ bool Shape2D::operator ==(const Shape2D& other) {
 void Shape2D::Calculate_Area() {
 
 }
+
+void Shape3D::Get_Volume() {
+
+}
+
+bool Shape3D::operator>(const Shape2D& other) {
+
+}
+
+bool Shape3D::operator<(const Shape2D& other) {
+
+}
+
+bool Shape3D::operator ==(const Shape2D& other) {
+
+}
+
+void Shape3D::Calculate_Volume() {
+
+}

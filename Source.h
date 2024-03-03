@@ -12,7 +12,7 @@ public:
 	std::string Get_Name();
 };
 
-class Shape2D {
+class Shape2D : public Shape {
 private:
 	float area = 0;
 public:
@@ -23,21 +23,25 @@ public:
 	void Calculate_Area();
 };
 
-class Shape3D {
+class Shape3D : public Shape {
 private:
 	float volume = 0;
 public:
-
+	void Get_Volume();
+	bool operator >(const Shape2D& other);
+	bool operator <(const Shape2D& other);
+	bool operator ==(const Shape2D& other);
+	void Calculate_Volume();
 };
 
-class Square {
+class Square : public Shape2D {
 private:
 	float side;
 public:
 
 };
 
-class Triangle {
+class Triangle : public Shape2D {
 private:
 	float base;
 	float height;
@@ -45,32 +49,33 @@ public:
 
 };
 
-class Round {
+class Round : public Shape2D {
 private:
 	float radius;
 public:
 
 };
 
-class Triangle_Pyramid {
+class Triangle_Pyramid : public Shape3D {
 private:
 	float height;
 public:
 
 };
 
-class Cylindr {
+class Cylindr : public Shape3D {
 private:
 	float height;
 public:
 
 };
 
-class Sphere {
+class Sphere : public Shape3D {
 private:
 	float radius;
 public:
 
 };
+
 
 #endif // !Source
