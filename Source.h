@@ -10,6 +10,7 @@ protected:
 public:
 	virtual void Scale(float Scale_Factor);
 	virtual void Show_Info();
+	void Info();
 	virtual std::string Get_Name();
 };
 
@@ -18,9 +19,7 @@ protected:
 	float area = 0;
 	virtual void Calculate_Area();
 public:
-	Shape2D() {
-		type = "Shape2d";
-	}
+	Shape2D();
 	float Get_Area();
 	bool operator >(const Shape2D& other);
 	bool operator <(const Shape2D& other);
@@ -32,9 +31,7 @@ protected:
 	float volume = 0;
 	virtual void Calculate_Volume();
 public:
-	Shape3D() {
-		type = "Shape3d";
-	}
+	Shape3D();
 	float Get_Volume();
 	bool operator >(const Shape3D& other);
 	bool operator <(const Shape3D& other);
@@ -45,16 +42,10 @@ class Square : public Shape2D {
 private:
 	float side;
 public:
-	Square(float side){
-		name = "Square";
-	};
-	Square() {
-		name = "Square";
-		side = 5;
-	}
-	void Calculate_Area() {
-		area = side * side;
-	}
+	Square(float side);
+	Square();
+	void Show_Info();
+	void Calculate_Area();
 };
 
 class Triangle : public Shape2D {
@@ -62,33 +53,20 @@ private:
 	float base;
 	float height;
 public:
-	Triangle(float base, float height) {
-		name = "Triangle";
-	}
-	Triangle() {
-		name = "Triangle";
-		base = 3;
-		height = 6;
-	}
-	void Calculate_Area() {
-		area = 0.5 * base * height;
-	}
+	Triangle(float base, float height);
+	Triangle();
+	void Show_Info();
+	void Calculate_Area();
 };
 
 class Round : public Shape2D {
 private:
 	float radius;
 public:
-	Round(float radius) {
-		name = "Round";
-	}
-	Round() {
-		name = "Round";
-		radius = 3;
-	}
-	void Calculate_Area() {
-		area = 3.14 * radius * radius;
-	}
+	Round(float radius);
+	Round();
+	void Show_Info();
+	void Calculate_Area();
 };
 
 class Triangle_Pyramid : public Shape3D {
@@ -96,14 +74,10 @@ private:
 	float height;
 	Triangle triangle;
 public:
-	Triangle_Pyramid(Triangle triangle, float height) {
-		name = "Triangle Pyramid";
-		this->triangle = triangle;
-		this->height = height;
-	}
-	void Calculate_Volume() {
-		volume = (1.0 / 3.0) * triangle.Get_Area() * height;
-	}
+	Triangle_Pyramid(Triangle triangle, float height);
+	Triangle_Pyramid();
+	void Show_Info();
+	void Calculate_Volume();
 };
 
 class Cylindr : public Shape3D {
@@ -111,27 +85,20 @@ private:
 	float height;
 	Round round;
 public:
-	Cylindr(Round round, float height) {
-		name = "Cylindr";
-		this->round = round;
-		this->height = height;
-	}
-	void Calculate_Volume() {
-		volume = round.Get_Area() * height;
-	}
+	Cylindr(Round round, float height);
+	Cylindr();
+	void Show_Info();
+	void Calculate_Volume();
 };
 
 class Sphere : public Shape3D {
 private:
 	float radius;
 public:
-	Sphere(float radius) {
-		name = "Sphere";
-		this->radius = radius;
-	}
-	void Calculate_Volume() {
-		volume = 4 / 3 * 3.14 * radius * radius * radius;
-	}
+	Sphere(float radius);
+	Sphere();
+	void Show_Info();
+	void Calculate_Volume();
 };
 
 #endif // !Source
